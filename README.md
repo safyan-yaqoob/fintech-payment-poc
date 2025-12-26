@@ -1,5 +1,7 @@
 # Fintech Payment Processing POC
 
+This is an example to payment processing system for learning purpose. I have created this for programetic understading of how the payment systems work and what are the terminologies used in the Fintech industry that heavily followed when building the fintech systems.
+
 ## 1. Overview
 
 A proof-of-concept fintech payment processing system that demonstrates real-world payment workflows including SWIFT MT103 to ISO 20022 pacs.008 conversion, domain-driven design patterns, and event-driven architecture. The system processes payments between accounts, automatically generates ISO 20022 compliant XML messages, and tracks payment lifecycle through domain events.
