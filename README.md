@@ -10,27 +10,6 @@ A proof-of-concept fintech payment processing system that demonstrates real-worl
 
 ### Architecture: Clean Architecture (Layered Architecture)
 
-The solution follows **Clean Architecture** principles with clear separation of concerns across four layers:
-
-- **Domain Layer** (`FintechPaymentPOC.Domain`): Core business entities, value objects, and domain events
-  - Entities: `Account`, `Transaction`
-  - Value Objects: `SwiftMtxPayment`, `Party`, `MTXPayment`
-  - Domain Events: `PaymentRequestedEvent`, `IDomainEvent`, `IDomainEventHandler`
-
-- **Application Layer** (`FintechPaymentPOC.Application`): Business logic and use cases
-  - Services: `PaymentService`, `MT103Parser`, `PaymentEnrichmentService`, `Pacs008Generator`
-  - DTOs: `PaymentRequestDto`, `PaymentResponseDto`, `AccountDto`
-  - Interfaces: `IPaymentService`, `IPaymentRepository`, `IDomainEventDispatcher`
-
-- **Infrastructure Layer** (`FintechPaymentPOC.Infrastructure`): Data access and external services
-  - Data: `PaymentDbContext`, `DatabaseSeeder`
-  - Repositories: `PaymentRepository`
-  - Events: `DomainEventDispatcher`, `PaymentEventHandler`, `NotificationEventHandler`, `AuditEventHandler`
-
-- **API Layer** (`FintechPaymentPOC.API`): HTTP endpoints and application configuration
-  - Controllers: `PaymentsController`, `AccountsController`
-  - Configuration: `Program.cs`
-
 ### Design Patterns Used
 
 1. **Domain-Driven Design (DDD)**
@@ -117,36 +96,11 @@ JANE DOE
 - .NET 9.0 SDK or later
 - Visual Studio 2022 / VS Code / Rider (optional)
 
-### Steps
-
-1. **Clone/Navigate to the repository:**
-   ```bash
-   cd fintech-poc
-   ```
-
-2. **Restore dependencies:**
-   ```bash
-   dotnet restore
-   ```
-
-3. **Build the solution:**
-   ```bash
-   dotnet build
-   ```
-
-4. **Run the API:**
+1. **Run the API:**
    ```bash
    cd FintechPaymentPOC.API
    dotnet run
    ```
-
-5. **Access Swagger UI:**
-   - Navigate to: `https://localhost:7082/swagger` (or `http://localhost:5108/swagger`)
-   - The API will be available with interactive documentation
-
-6. **Database:**
-   - Uses in-memory database (seeded with sample accounts on startup)
-   - No additional database setup required
 
 ## 5. APIs Overview
 
@@ -202,16 +156,6 @@ Converts SWIFT MT103 message to ISO 20022 pacs.008 XML.
 - **Swagger/OpenAPI** - API documentation
 - **Clean Architecture** - Layered architecture pattern
 - **Domain-Driven Design** - DDD principles
-
-## Project Structure
-
-```
-FintechPaymentPOC/
-├── FintechPaymentPOC.Domain/          # Domain layer (entities, value objects, events)
-├── FintechPaymentPOC.Application/     # Application layer (services, DTOs, interfaces)
-├── FintechPaymentPOC.Infrastructure/  # Infrastructure layer (data access, event handlers)
-└── FintechPaymentPOC.API/            # API layer (controllers, configuration)
-```
 
 ## Notes
 
